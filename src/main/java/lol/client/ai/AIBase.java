@@ -25,9 +25,27 @@ public abstract class AIBase {
   }
 
   // This is the first turn where champions are selected.
-  public abstract Turn championSelect();
+  public abstract Turn championSelect(){
+    championSelect.registerAction(new ChampionSelect(teamID, "Warrior"));
+  }
 
   // The turn of our team.
   // This method is necessarily invoked after `championSelect`.
-  public abstract Turn turn();
+  public abstract Turn turn(){
+    turn.registerAction(new Attack (teamID,id, nexus.x(), nexus.y()));
+    turn.registerAction(new Attack (teamID,id, nexus.x(), nexus.y()));
+    turn.registerAction(new Attack (teamID,id, nexus.x(), nexus.y()));
+    turn.registerAction(new Attack (teamID,id, monster.attackRange()));
+    turn.registerAction(new Attack (teamID,id, monster.attackRange()));;
+    turn.registerAction(new Attack (teamID,id, tower.attackRange()));
+    turn.registerAction(new Attack (teamID,id, tower.attackRange()));
+    turn.registerAction(new Attack (teamID,id, nexus.x(), nexus.y()));
+    turn.registerAction(new Attack (teamID,id, nexus.x(), nexus.y()));
+    turn.registerAction(new Attack (teamID,id, nexus.x(), nexus.y()));
+    turn.registerAction(new Attack (teamID,id, monster.attackRange()));
+    turn.registerAction(new Attack (teamID,id, tower.attackRange()));
+    turn.registerAction(new Attack (teamID,id, tower.attackRange()));
+  }
+
+
 }
